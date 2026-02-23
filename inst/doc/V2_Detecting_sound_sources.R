@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -45,7 +45,7 @@ lm <- layoutMatrix(st = st, start = 'topleft', byrow = T, nrow = 3, ncol = 3)
 lm
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  omniSpectro(st, lm, intervalLength = 7)
+# omniSpectro(st, lm, intervalLength = 7)
 
 ## -----------------------------------------------------------------------------
 read.csv(system.file('extdata', 'Vignette_Detections_20200617_090000.csv', package = 'locaR'))

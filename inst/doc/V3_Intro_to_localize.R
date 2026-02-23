@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -62,57 +62,60 @@ locFolder <- tempdir()
 jpg <- '0001.jpeg'
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  loc <- localize(wavList = wl, coordinates = crd, locFolder = locFolder,
-#                    F_Low = row$F_Low, F_High = row$F_High, jpegName = jpg, keep.SearchMap = T)
+# loc <- localize(wavList = wl, coordinates = crd, locFolder = locFolder,
+#                   F_Low = row$F_Low, F_High = row$F_High, jpegName = jpg, keep.SearchMap = T, plot_label = 'Example event')
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  loc$location
+# loc$location
 
 ## ----echo=FALSE---------------------------------------------------------------
 read.csv(system.file('/extdata/Vignette_location1.csv', package = 'locaR'), stringsAsFactors = FALSE)
 
+## -----------------------------------------------------------------------------
+utils::browseURL(locFolder)
+
 ## ----eval=FALSE---------------------------------------------------------------
-#  for(i in 1:nrow(detections)) {
-#    #Select the ith row.
-#    row <- detections[i,]
-#  
-#    #Skip rows that don't have a value in the Station1 column.
-#    if(row$Station1 == "" | is.na(row$Station1)) {next}
-#  
-#    #get names of relevant stations for this detection.
-#    stationSubset <- unlist(row[1,paste0('Station',1:6)])
-#    #remove NA stations, if applicable.
-#    stationSubset <- stationSubset[!is.na(stationSubset)]
-#    stationSubset <- stationSubset[stationSubset != '']
-#  
-#  
-#    #make a new wavList containing only the stations of interest.
-#    pathSubset <- filepaths[stationSubset]
-#  
-#    #use createWavList() to create a list of wave objects.
-#    #We can set index = i, so that if there is an error, we can pinpoint which detection
-#    #it came from.
-#    wl <- createWavList(paths = pathSubset, names = stationSubset,
-#                        from = row$From, to = row$To, buffer = 0.2, index=i)
-#  
-#    #Get low and high frequency.
-#    F_Low <- row$F_Low
-#    F_High <- row$F_High
-#  
-#    #make a new coordinates data.frame with only relevant stations.
-#    crd <- coordinates[stationSubset,]
-#  
-#    #Create jpeg name.
-#    jpg <- paste0(formatC(i,width=4,flag='0'), '.jpeg')
-#  
-#    #localize(). Will leave most parameters at their default values.
-#    loc <- localize(wavList = wl, coordinates = crd, locFolder = locFolder,
-#                    F_Low = F_Low, F_High = F_High, jpegName = jpg, keep.SearchMap = T)
-#  
-#    if(i == 1) {OUT <- cbind(row,loc$location)} else {OUT <- rbind(OUT, cbind(row,loc$location))}
-#  
-#  }
-#  
+# for(i in 1:nrow(detections)) {
+#   #Select the ith row.
+#   row <- detections[i,]
+# 
+#   #Skip rows that don't have a value in the Station1 column.
+#   if(row$Station1 == "" | is.na(row$Station1)) {next}
+# 
+#   #get names of relevant stations for this detection.
+#   stationSubset <- unlist(row[1,paste0('Station',1:6)])
+#   #remove NA stations, if applicable.
+#   stationSubset <- stationSubset[!is.na(stationSubset)]
+#   stationSubset <- stationSubset[stationSubset != '']
+# 
+# 
+#   #make a new wavList containing only the stations of interest.
+#   pathSubset <- filepaths[stationSubset]
+# 
+#   #use createWavList() to create a list of wave objects.
+#   #We can set index = i, so that if there is an error, we can pinpoint which detection
+#   #it came from.
+#   wl <- createWavList(paths = pathSubset, names = stationSubset,
+#                       from = row$From, to = row$To, buffer = 0.2, index=i)
+# 
+#   #Get low and high frequency.
+#   F_Low <- row$F_Low
+#   F_High <- row$F_High
+# 
+#   #make a new coordinates data.frame with only relevant stations.
+#   crd <- coordinates[stationSubset,]
+# 
+#   #Create jpeg name.
+#   jpg <- paste0(formatC(i,width=4,flag='0'), '.jpeg')
+# 
+#   #localize(). Will leave most parameters at their default values.
+#   loc <- localize(wavList = wl, coordinates = crd, locFolder = locFolder,
+#                   F_Low = F_Low, F_High = F_High, jpegName = jpg, keep.SearchMap = T, plot_label = paste0('Species: ', row$Species, '\nFrom: ', row$From))
+# 
+#   if(i == 1) {OUT <- cbind(row,loc$location)} else {OUT <- rbind(OUT, cbind(row,loc$location))}
+# 
+# }
+# 
 
 ## ----echo=FALSE---------------------------------------------------------------
 read.csv(system.file('/extdata/Vignette_Detections_20200617_090000_Localized.csv', package = 'locaR'),

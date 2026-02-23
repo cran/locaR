@@ -1,9 +1,9 @@
 Package: locaR
 Type: Package
 Title: A Set of Tools for Sound Localization
-Version: 0.1.2
+Version: 0.2.0
 Authors@R: c(
-    person("Richard", "Hedley", email = "rwhedley@gmail.com", role = "cre"),
+    person("Richard", "Hedley", email = "rwhedley@gmail.com", role = c("cre", "aut")),
     person("Marcus", "Becker", email = "mabecker@ualberta.ca", role = "aut"),
     person("Tim", "Huang", role = "aut"))
 Maintainer: Richard Hedley <rwhedley@gmail.com>
@@ -12,15 +12,16 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://github.com/rhedley/locaR
 BugReports: https://github.com/rhedley/locaR/issues
-RoxygenNote: 7.2.3
-Imports: seewave, tuneR, matrixStats, oce, signal, SynchWave
+RoxygenNote: 7.3.3
+Imports: seewave, tuneR, matrixStats, oce, signal, SynchWave, stats,
+        utils, graphics, grDevices
 Suggests: testthat (>= 2.0.0), knitr, rmarkdown
 Config/testthat/edition: 2
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2023-02-16 00:25:02 UTC; Richard Hedley
-Author: Richard Hedley [cre],
+Packaged: 2026-02-23 21:36:38 UTC; hedley
+Author: Richard Hedley [cre, aut],
   Marcus Becker [aut],
   Tim Huang [aut]
 Repository: CRAN
-Date/Publication: 2023-02-16 15:40:04 UTC
+Date/Publication: 2026-02-23 22:10:02 UTC

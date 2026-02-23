@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -39,7 +39,7 @@ write.csv(dets, file.path(tempdir(), '20200617_090000', 'Run1', 'Ex_20200617_090
 st <- processSettings(settings = survey, getFilepaths = TRUE, types = 'wav')
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  locs <- localizeMultiple(st = st, indices = 'all')
+# locs <- localizeMultiple(st = st, indices = 'all')
 
 ## ----echo=FALSE---------------------------------------------------------------
 read.csv(system.file('/extdata/Vignette_Detections_20200617_090000_Localized.csv', package = 'locaR'),
@@ -48,4 +48,7 @@ read.csv(system.file('/extdata/Vignette_Detections_20200617_090000_Localized.csv
 ## ----echo=FALSE---------------------------------------------------------------
 read.csv(system.file('/extdata/Vignette_Detections_20200617_090000_Localized.csv', package = 'locaR'),
          stringsAsFactors = FALSE)[,c('Easting', 'Northing', 'Elevation')]
+
+## -----------------------------------------------------------------------------
+utils::browseURL(tempdir())
 
